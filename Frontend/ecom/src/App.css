@@ -237,3 +237,53 @@ footer {
     text-align: center;
     color: white;
 }
+
+/* LOGIN */
+
+.login-input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    border-color: #dfdfdf;
+    background-color: white;
+    width: 20rem;
+    margin-bottom: 1.8rem;
+    font-size: 1.3rem;
+    
+  }
+  
+  .login-input:focus {
+    outline: none;
+  }
+  .signin {
+      width: 20rem;
+      margin: auto;
+      margin-bottom: 5rem;
+  }
+  .signin h1 {
+      margin-bottom: 2rem;
+      text-align: center;
+      color:#9b9b9b;
+  }
+  .signin p {
+      margin-bottom: 2rem;  
+  }
+
+  .div-btn {
+      text-align: center;
+  }
+  .login-btn {
+      background-color: #000;
+      color: white;
+      border-radius: 1.5rem;
+      border: 0px;
+      padding: .3em 1em;
+      font-size: 1.5rem;
+      cursor: pointer;
+  }
+  .login-btn:hover {
+  }
+  .signin a:visited {
+    color: blue;
+  }
