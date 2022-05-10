@@ -1,2 +1,3 @@
 1. zooma bild
 2. lägga till en admin
+3. sortera produkter

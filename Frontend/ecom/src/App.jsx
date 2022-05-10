@@ -4,6 +4,10 @@ import ShopView from './views/ShopView';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AdminView from './views/AdminView';
+import RegisterView from './views/RegisterView'
+import LoginView from './views/LoginView'
+import ProductDetailsView from './views/ProductDetailsView'
+import UserProfileView from './views/UserProfileView';
 
 
 function App() {
@@ -11,9 +15,16 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-          <AdminView />
+        <Routes>
+          <Route path="/" element={ <ShopView /> } />
+          <Route path="/login" element={ <LoginView /> } />
+          <Route path="/register" element={ <RegisterView /> } />
+          <Route path="/details" element={ <ProductDetailsView /> } />
+          <Route path="/user" element={ <UserProfileView /> } />
+        </Routes>
         <Footer />
       </BrowserRouter>
+
     </div>
   );
 }
