@@ -114,7 +114,7 @@ body {
 
 .btn {
     border: transparent;
-    color: block;
+    color: black;
     background-color: transparent;
     padding: 0.5rem 1rem;
     border-radius: 100vh;
@@ -175,4 +175,37 @@ body {
 .navbar__actions .fa-cart-shopping {
     font-size: 1rem;
     color: white;
+}
+
+/* Admin */
+.admin-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20.5em;
+    margin-top: 2rem;
+}
+.admin-container h4 {
+    border-bottom: 1px solid black;
+}
+.admin-list-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1.5em -4.5em;
+    gap: 15em;
+}
+
+.admin-list-container li {
+    list-style: none;
+}
+.admin-btn {
+    border: 1px solid black;
+    background-color: transparent;
+    color: black;
+    border-radius: 100vh;
+    cursor: pointer;
+}
+.admin-btn:hover {
+    background-color: #e8e8e8;
 }
