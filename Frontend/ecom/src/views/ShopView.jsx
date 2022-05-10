@@ -1,13 +1,10 @@
 import React from 'react'
-//import ShopList from '../components/shop/ShopList'
-import Login from '../components/shop/Login'
-import Register from '../components/shop/Register'
+import ShopList from '../components/shop/ShopList'
 
 const ShopView = () => {
   return (
     <div>
-      <Login />
-      <Register />
+      <ShopList />
     </div>
   )
 }
