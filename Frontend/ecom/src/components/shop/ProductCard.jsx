@@ -1,18 +1,18 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const ProductCard = () => {
+const ProductCard = ({product}) => {
   return (
-    <Link to="/details">
+    <Link to={`details/${product._id}`}>
       <div className="product-card">
         <div className="product-card__img-wrapper">
-          <img src="https://cdn.shopify.com/s/files/1/0498/8764/1749/products/triveni_600x.jpg?v=1617089965" alt="" />
+          <img src={product.imgURL} alt="" />
         </div>
         <div className="product-card__content-wrapper">
-          <h2>Title for some product</h2>
+          <h2>{product.name}</h2>
           <div className="product-card__price-wrapper">
-            <div className="product-card__price sale">20kr</div>
-            <div className="product-card__price">12kr</div>
+            {/* <div className="product-card__price sale">20kr</div> */}
+            <div className="product-card__price">{product.price} KR</div>
           </div>
         </div>
       </div>

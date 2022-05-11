@@ -31,7 +31,7 @@ function App() {
           <Route path="/" element={ <ShopView /> } />
           <Route path="/login" element={ <LoginView /> } />
           <Route path="/register" element={ <RegisterView /> } />
-          <Route path="/details" element={ <ProductDetailsView /> } />
+          <Route path="/details/:id" element={ <ProductDetailsView /> } />
           <Route path="/user" element={ <UserProfileView /> } />
         </Routes>
         <Footer />

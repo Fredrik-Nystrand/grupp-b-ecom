@@ -10,7 +10,7 @@ const ShopList = () => {
       { error && <p>error</p> }
       <div className="shop-list container">
         { products.map(product => (
-        <ProductCard key={product._id} product={product} />
+          <ProductCard key={product._id} product={product} />
         ))}
       </div>
     </>
