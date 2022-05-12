@@ -4,7 +4,7 @@ import React from 'react'
 const UserProfileView = () => {
   return (
   
-    <div className="container">
+    <div className="container content">
         <div className="userprofile-card">
            <div className="userprofile-info-header">
                <div className='userprofile-info'>
@@ -14,9 +14,9 @@ const UserProfileView = () => {
                <p>Sweden</p>
                </div>
                <div className="userprofile-header-buttons">
-                   <button className='btn btn-edit'><i class="fa-solid fa-pen-to-square"></i></button>
-                   <button className='btn btn-settings'><i class="fa-solid fa-gear"></i></button>
-                   <button className='btn btn-admin'><i class="fa-solid fa-hammer"></i></button>                   
+                   <button className='btn btn-edit'><i className="fa-solid fa-pen-to-square"></i></button>
+                   <button className='btn btn-settings'><i className="fa-solid fa-gear"></i></button>
+                   <button className='btn btn-admin'><i className="fa-solid fa-hammer"></i></button>                   
                </div>
            </div>          
            <ul className='userprofile-orderlist'>
@@ -28,19 +28,19 @@ const UserProfileView = () => {
                 <li className='userprofile-order'>
                     <div className='userprofile-order-date'>2022-02-18</div>
                     <div className='userprofile-order-number'>102319230</div>
-                    <div className='userprofile-order-status'><i class="fa-solid fa-square sent"></i> <p className='userprofile-status-text'>Skickad</p> </div>
+                    <div className='userprofile-order-status'><i className="fa-solid fa-square sent"></i> <p className='userprofile-status-text'>Skickad</p> </div>
                 </li>
                 
                 <li className='userprofile-order'>
                     <div className='userprofile-order-date'>2022-02-18</div>
                     <div className='userprofile-order-number'>102319230</div>
-                    <div className='userprofile-order-status'><i class="fa-solid fa-square pending"></i> <p>Ej Skickad</p> </div>
+                    <div className='userprofile-order-status'><i className="fa-solid fa-square pending"></i> <p>Ej Skickad</p> </div>
                 </li>    
                 
                 <li className='userprofile-order'>
                     <div className='userprofile-order-date'>2022-02-18</div>
                     <div className='userprofile-order-number'>102319230</div>
-                    <div className='userprofile-order-status'><i class="fa-solid fa-square canceled"></i> <p>Avbruten</p> </div>
+                    <div className='userprofile-order-status'><i className="fa-solid fa-square canceled"></i> <p>Avbruten</p> </div>
                 </li>
          
                            

@@ -3,7 +3,7 @@ import ShopList from '../components/shop/ShopList'
 
 const ShopView = () => {
   return (
-    <div>
+    <div className="content">
       <ShopList />
     </div>
   )

@@ -46,7 +46,6 @@ dd {
 /* Set core body defaults */
 
 body {
-    min-height: 100vh;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
@@ -109,18 +108,19 @@ select {
 /* ------------------------------------------------------------------- */
 
 body {
+    display: flex;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-}
-
-.root {
     height: 100vh;
+    width: 100vw;
 }
 
 .App {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
+    width: 100vw;
+    position: relative;
 }
 
 .container {
@@ -129,6 +129,12 @@ body {
     max-width: 78rem;
     margin: 0 auto;
     height: 100%;
+}
+
+.content {
+    flex: 1;
+    overflow: auto;
+    padding-top: 3rem;
 }
 
 .btn {
@@ -143,11 +149,8 @@ body {
 /* NAVBAR */
 
 .navbar {
-    position: sticky;
-    top: 0;
     background-color: rgba(255, 255, 255, 0.938);
     border-bottom: 1px solid black;
-    margin-bottom: 3rem;
 }
 
 .navbar a {
@@ -522,21 +525,36 @@ footer {
 }
 
 
-
-
-
 /* SHOPPING CART */
+
+.overlay {
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.cart {
+    position: relative;
+}
+
 .shopping-cart {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(-1rem, 3rem);
     width: 450px;
     border: 1px solid #d3d0d0;
     border-radius: 5px;
     box-shadow: 0 5px 5px 0 #a1a1a1;
     margin-bottom: 2rem;
+    background-color: white;
 }
 
 .shopping-cart .cart-top {
     padding: 1rem;
 }
+
 .shopping-cart .cart-bottom {
     display: flex;
     align-items: center;
@@ -545,37 +563,43 @@ footer {
     border-top: 1px solid #a1a1a1;
 }
 
-
 .cart-item {
     display: flex;
     justify-content: space-between;
     gap: 1.5rem;
     padding: .5rem;
 }
+
 .cart-item__img-wrapper img {
     width: 35px;
 }
+
 .cart-item__content-wrapper {
     width: 350px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .cart-item h2 {
-    color: rgb(14, 63, 99);;
+    color: rgb(14, 63, 99);
+    ;
     font-family: Montserrat, sans-serif;
     font-size: 13.760000228881836px;
     font-weight: 600;
 }
+
 .cart-item__price-wrapper {
     color: #a0c4d2;
     display: flex;
     justify-content: space-between;
     gap: .5rem;
 }
+
 .cart-item__price {
     text-decoration: line-through;
 }
+
 .cart-item .sale {
     text-decoration: none;
 }
