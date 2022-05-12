@@ -12,6 +12,7 @@ import RegisterView from './views/RegisterView'
 import LoginView from './views/LoginView'
 import ProductDetailsView from './views/ProductDetailsView'
 import UserProfileView from './views/UserProfileView';
+import ShoppingCart from './components/ShoppingCart/ShoppingCart'
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/register" element={ <RegisterView /> } />
           <Route path="/details/:id" element={ <ProductDetailsView /> } />
           <Route path="/user" element={ <UserProfileView /> } />
+          <Route path="/cart" element={ <ShoppingCart /> } />
         </Routes>
         <Footer />
       </BrowserRouter>
