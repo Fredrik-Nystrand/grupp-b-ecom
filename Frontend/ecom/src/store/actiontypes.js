@@ -7,6 +7,13 @@ const actiontypes = () => {
       getSingleProduct: 'GET_SINGLE_PRODUCT',
       getSingleProductSuccess: 'GET_SINGLE_PRODUCT_SUCCESS',
       getSingleProductFailure: 'GET_SINGLE_PRODUCT_FAILURE'
+    },
+    cart: {
+      addToCart: 'ADD_TO_CART',
+      removeFromCart: 'REMOVE_FROM_CART',
+      increment: 'INCREMENT',
+      decrement: 'DECREMENT',
+      editQuantity: 'EDIT_QUANTITY'
     }
   }
 }

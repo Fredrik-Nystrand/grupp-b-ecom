@@ -11,11 +11,11 @@ const Navbar = () => {
 const toggleCart = () => {
   if (cartOpen === true) {
     setCartOpen(false)
-    console.log("false")
+    //console.log("false")
 
   }else {
     setCartOpen(true)
-    console.log("true")
+    //console.log("true")
 
   }
   

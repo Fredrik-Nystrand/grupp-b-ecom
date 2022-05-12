@@ -1,19 +1,23 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import CartItem from './CartItem'
 
+
 const ShoppingCart = () => {
+
+  const { cart, totalPrice } = useSelector(state => state.cartReducer)
   return (
         <div className='shopping-cart'>
           <div className='cart-top'>
-              <CartItem />
-              <CartItem />
-              <CartItem />
+              { cart.map(product => (
+                <CartItem product={product} key={product._id} />
+              ))}
           </div>
 
           <div className='cart-bottom'>
               <div>
-                  <div>Total Price: 0</div>
+                  <div>Total Price: {totalPrice} KR</div>
                   <small className='text-muted'>Ink. vat</small>
               </div>
               <div>
