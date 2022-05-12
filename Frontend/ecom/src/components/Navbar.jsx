@@ -20,9 +20,11 @@ const Navbar = () => {
           <Link to="/login">
             <button className="btn navbar-btn"><i className="fa-solid fa-user"></i>Login</button>
           </Link>
-          <div className="cart-btn">
-            <i className="fa-solid fa-cart-shopping"></i>
-          </div>
+          <Link to='/cart'>
+            <div className="cart-btn">
+              <i className="fa-solid fa-cart-shopping"></i>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
