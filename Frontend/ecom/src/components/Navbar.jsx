@@ -1,5 +1,6 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
+import logo from '../assets/logo.png'
 
 const Navbar = () => {
   return (
@@ -8,14 +9,19 @@ const Navbar = () => {
         <div className="navbar__links">
           <NavLink to="/" className="nav-link">Shop</NavLink>
           <NavLink to="/admin" className="nav-link">Admin</NavLink>
+          <NavLink to="/user" className="nav-link">User</NavLink>
         </div>
         <div className="navbar__logo">
-          LOGOTYP
+          <Link to="/">
+            <img src={logo} />
+          </Link>
         </div>
         <div className="navbar__actions">
-          <button className="btn navbar-btn"><i class="fa-solid fa-user"></i>Login</button>
+          <Link to="/login">
+            <button className="btn navbar-btn"><i className="fa-solid fa-user"></i>Login</button>
+          </Link>
           <div className="cart-btn">
-            <i class="fa-solid fa-cart-shopping"></i>
+            <i className="fa-solid fa-cart-shopping"></i>
           </div>
         </div>
       </div>
