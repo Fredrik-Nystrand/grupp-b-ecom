@@ -1,10 +1,17 @@
 import React from 'react'
 import { useState } from 'react'
+import OrderItem from '../components/userView/OrderItem'
 
 
 const UserProfileView = () => {
     
     const [open, setOpen] = useState(false)
+
+    const arr = [
+      {date: "2022-02-18", id: "1023wwf19230", status: "Skickad"},
+      {date: "2022-02-18", id: "102wfgfgw319230", status: "Skickad"},
+      {date: "2022-02-18", id: "1023wfwffgg19230", status: "Skickad"}
+    ]
  
     return (
   
@@ -29,10 +36,15 @@ const UserProfileView = () => {
                    <div className="userprofile-column order-number">Ordernummer</div>
                    <div className="userprofile-column status">Orderstatus</div>
                </li>
-                <li className='userprofile-order'>
+
+                {arr.map(item => (
+                  <OrderItem key={item.id} item={item} />
+                ))}
+                
+
+                {/* <li className='userprofile-order'>
                     <div className='userprofile-order-date'>2022-02-18</div>
                     <div className='userprofile-order-number'>102319230</div>
-<<<<<<< HEAD
                     <div className='userprofile-order-status'>
                         <p className='userprofile-status-text'>Skickad</p>
                         <div>
@@ -41,15 +53,11 @@ const UserProfileView = () => {
                         <button className='userprofile-chevron' onClick={() => setOpen(!open)}><i className="fa-solid fa-chevron-down"></i></button>
                         {open && UPdropdownMenu()}
                     </div>
-=======
-                    <div className='userprofile-order-status'><i className="fa-solid fa-square sent"></i> <p className='userprofile-status-text'>Skickad</p> </div>
->>>>>>> main
                 </li>
                 
                 <li className='userprofile-order'>
                     <div className='userprofile-order-date'>2022-02-18</div>
                     <div className='userprofile-order-number'>102319230</div>
-<<<<<<< HEAD
                     <div className='userprofile-order-status'>
                          <p className='userprofile-status-text'>Ej Skickad</p> 
                          <div>
@@ -58,15 +66,11 @@ const UserProfileView = () => {
                          <button className='userprofile-chevron' onClick={() => setOpen(!open)}><i className="fa-solid fa-chevron-down"></i></button>
                         {open && UPdropdownMenu()}
                     </div>
-=======
-                    <div className='userprofile-order-status'><i className="fa-solid fa-square pending"></i> <p>Ej Skickad</p> </div>
->>>>>>> main
                 </li>    
                 
                 <li className='userprofile-order'>
                     <div className='userprofile-order-date'>2022-02-18</div>
                     <div className='userprofile-order-number'>102319230</div>
-<<<<<<< HEAD
                     <div className='userprofile-order-status'>
                         <p className='userprofile-status-text'>Avbruten</p>
                         <div>
@@ -75,10 +79,7 @@ const UserProfileView = () => {
                     <button className='userprofile-chevron' onClick={() => setOpen(!open)}><i className="fa-solid fa-chevron-down"></i></button>
                         {open && UPdropdownMenu()}
                      </div>
-=======
-                    <div className='userprofile-order-status'><i className="fa-solid fa-square canceled"></i> <p>Avbruten</p> </div>
->>>>>>> main
-                </li>
+                </li> */}
          
                            
             </ul>

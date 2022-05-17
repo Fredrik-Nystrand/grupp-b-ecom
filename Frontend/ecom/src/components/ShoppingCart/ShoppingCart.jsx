@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import CartItem from './CartItem'
 
 
-const ShoppingCart = () => {
+const ShoppingCart = ({toggleCart}) => {
 
   const { cart, totalPrice } = useSelector(state => state.cartReducer)
   return (
@@ -21,9 +21,12 @@ const ShoppingCart = () => {
                   <small className='text-muted'>Ink. vat</small>
               </div>
               <div>
-                  <Link to='/login'>
-                      <button className='btn navbar-btn'>Checkout</button>
-                  </Link>
+                  {cart.length > 0 
+                  ? <Link to='/checkout'>
+                      <button className='btn navbar-btn' onClick={toggleCart}>Checkout</button>
+                    </Link>
+                  : ''  
+                }
                   {/* <button btn btn-warning>Clear Cart</button> */}
               </div>
           </div>

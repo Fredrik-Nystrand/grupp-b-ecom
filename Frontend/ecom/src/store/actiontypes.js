@@ -14,6 +14,12 @@ const actiontypes = () => {
       increment: 'INCREMENT',
       decrement: 'DECREMENT',
       editQuantity: 'EDIT_QUANTITY'
+    },
+    auth: {
+      authorize: 'AUTHORIZE',
+      authorizeSuccess: 'AUTHORIZE_SUCCESS',
+      authorizeFailure: 'AUTHORIZE_FAILURE',
+      logout: 'LOGOUT',
     }
   }
 }
