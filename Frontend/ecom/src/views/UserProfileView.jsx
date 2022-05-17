@@ -8,7 +8,7 @@ const UserProfileView = () => {
  
     return (
   
-    <div className="container">
+    <div className="container content">
         <div className="userprofile-card">
            <div className="userprofile-info-header">
                <div className='userprofile-info'>
@@ -32,6 +32,7 @@ const UserProfileView = () => {
                 <li className='userprofile-order'>
                     <div className='userprofile-order-date'>2022-02-18</div>
                     <div className='userprofile-order-number'>102319230</div>
+<<<<<<< HEAD
                     <div className='userprofile-order-status'>
                         <p className='userprofile-status-text'>Skickad</p>
                         <div>
@@ -40,11 +41,15 @@ const UserProfileView = () => {
                         <button className='userprofile-chevron' onClick={() => setOpen(!open)}><i className="fa-solid fa-chevron-down"></i></button>
                         {open && UPdropdownMenu()}
                     </div>
+=======
+                    <div className='userprofile-order-status'><i className="fa-solid fa-square sent"></i> <p className='userprofile-status-text'>Skickad</p> </div>
+>>>>>>> main
                 </li>
                 
                 <li className='userprofile-order'>
                     <div className='userprofile-order-date'>2022-02-18</div>
                     <div className='userprofile-order-number'>102319230</div>
+<<<<<<< HEAD
                     <div className='userprofile-order-status'>
                          <p className='userprofile-status-text'>Ej Skickad</p> 
                          <div>
@@ -53,11 +58,15 @@ const UserProfileView = () => {
                          <button className='userprofile-chevron' onClick={() => setOpen(!open)}><i className="fa-solid fa-chevron-down"></i></button>
                         {open && UPdropdownMenu()}
                     </div>
+=======
+                    <div className='userprofile-order-status'><i className="fa-solid fa-square pending"></i> <p>Ej Skickad</p> </div>
+>>>>>>> main
                 </li>    
                 
                 <li className='userprofile-order'>
                     <div className='userprofile-order-date'>2022-02-18</div>
                     <div className='userprofile-order-number'>102319230</div>
+<<<<<<< HEAD
                     <div className='userprofile-order-status'>
                         <p className='userprofile-status-text'>Avbruten</p>
                         <div>
@@ -66,6 +75,9 @@ const UserProfileView = () => {
                     <button className='userprofile-chevron' onClick={() => setOpen(!open)}><i className="fa-solid fa-chevron-down"></i></button>
                         {open && UPdropdownMenu()}
                      </div>
+=======
+                    <div className='userprofile-order-status'><i className="fa-solid fa-square canceled"></i> <p>Avbruten</p> </div>
+>>>>>>> main
                 </li>
          
                            

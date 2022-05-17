@@ -8,7 +8,7 @@ export const getSingleProduct = (id) => {
     })
     try {
       const res = await axios.get(`http://localhost:9000/api/products/${id}`)
-      console.log(res.data)
+      //console.log(res.data)
 
       if(res.status === 200){
         dispatch(getProductSuccess(res.data))

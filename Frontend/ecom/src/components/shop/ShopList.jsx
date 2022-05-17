@@ -7,6 +7,7 @@ const ShopList = () => {
   const {loading, error, data: products} = useSelector(state => state.productsReducer)
   return (
     <>
+      { loading && 'loading..' }
       { error && <p>error</p> }
       <div className="shop-list container">
         { products.map(product => (
