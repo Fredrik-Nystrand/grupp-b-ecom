@@ -372,17 +372,33 @@ body {
 
 
 /* UserProfileView */
+:root {
+    --speed: 500ms;
+}
 
 .sent {
-    color: #339900;
+    color: #339900;    
 }
 
 .pending {
-    color: #ffcc00;
+    color: #ffcc00;    
 }
 
 .canceled {
-    color: #cc3300;
+    color: #cc3300;    
+}
+
+.userprofile-dropdown{
+   background-color: transparent;
+   transform: translateY(45%);
+   padding: 1rem;
+   overflow: hidden;
+}
+
+.userprofile-dropdown-item {
+    height: 25px;
+    display: flex;
+    align-items: center;
 }
 
 .userprofile-card {
@@ -391,18 +407,17 @@ body {
     color: black;
     border: #333;
     background-color: #faf9f6;
-    border-radius: 15px 0 0 15px;
+    border-radius: 15px;
     box-shadow: 0 5px 5px 0 #a1a1a1;
     height: 95%;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
+   
 }
 
 .userprofile-info-header {
     display: flex;
     background-color: #ffffff9c;
     height: 20vh;
-    border-radius: 15px 0 0 0;
+    border-radius: 15px 15px 0 0;
     border-bottom: solid 1px #3333338a;
 }
 
@@ -417,6 +432,18 @@ body {
     margin: 3rem;
     align-items: center;
     font-size: 25px;
+}
+
+.userprofile-chevron {
+    background-color: transparent;
+    border-radius: 50px;
+    border: none;
+    margin-left: 99%;
+    transition: background 500ms;
+}
+
+.userprofile-chevron:hover {
+    background-color: #cecece;
 }
 
 .userprofile-orderlist {
@@ -447,8 +474,16 @@ body {
 
 .userprofile-order-status {
     display: flex;
-    width: 5.5rem;
+    width: 6rem;
     gap: 7px;
+}
+
+.userprofile-status-text {
+    position: absolute;
+}
+
+.fa-square {
+    padding-left: 5rem;
 }
 
 
