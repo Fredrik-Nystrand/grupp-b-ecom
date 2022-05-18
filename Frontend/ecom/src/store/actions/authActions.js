@@ -52,7 +52,7 @@ export const checkAuth = () => {
 }
 
 const getUserInfo = (id, token) => {
-  return async dispatch => {
+  return async () => {
     const res = await axios.get(`http://localhost:9000/api/users/${id}`, {headers: { Authorization: "Bearer " + token}})
     return res.data
   }
