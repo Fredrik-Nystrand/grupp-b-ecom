@@ -1,15 +1,51 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import CartItem from '../components/ShoppingCart/CartItem'
+import {useEffect, useState} from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import CheckoutItem from '../components/checkout/CheckoutItem'
+import {createOrder} from '../store/actions/ordersAction'
+import { clearCart } from '../store/actions/cartActions'
+
 
 const CheckoutView = () => {
   const { cart, totalPrice } = useSelector(state => state.cartReducer)
+  const { id, token } = useSelector(state => state.authReducer)
+  const { loading, error } = useSelector(state => state.orderReducer)
+  const [newOrder, setNewOrder] = useState({})
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setNewOrder({
+      token,
+      order: {
+        user: id,
+        cart,
+        totalPrice
+      }
+    })
+  }, [cart, id])
+
+
+  const placeOrder = async () => {
+    await dispatch(createOrder(newOrder))
+
+    if(loading === false && error === null){
+      dispatch(clearCart())
+    }
+  }
 
   return (
-    <div className="container content">
+    <div className="container content checkout">
       { cart.map(product => (
-        <CartItem product={product} key={product._id} />
+        <CheckoutItem product={product} key={product._id} />
       ))}
+      <div className='checkout-bottom'>
+              <div>
+                  <div>Total Price: {totalPrice} KR</div>
+                  <small className='text-muted'>Ink. vat</small>
+              </div>
+              <div>
+                <button className='btn navbar-btn' onClick={placeOrder} >Place Order</button>
+              </div>
+      </div>
     </div>
   )
 }

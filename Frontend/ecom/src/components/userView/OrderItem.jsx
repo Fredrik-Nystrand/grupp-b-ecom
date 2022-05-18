@@ -1,13 +1,13 @@
 import {useState} from 'react'
 
-const OrderItem = () => {
+const OrderItem = ({order}) => {
 
   const [open, setOpen] = useState(false)
   return (
     <div>
     <li className='userprofile-order'>
-    <div className='userprofile-order-date'>2022-02-18</div>
-    <div className='userprofile-order-number'>102319230</div>
+    <div className='userprofile-order-date'>{order.createdAt.split('T')[0]}</div>
+    <div className='userprofile-order-number'>{order._id}</div>
     <div className='userprofile-order-status'>
         <p className='userprofile-status-text'>Skickad</p>
         <div>

@@ -372,27 +372,28 @@ body {
 
 
 /* UserProfileView */
+
 :root {
     --speed: 500ms;
 }
 
 .sent {
-    color: #339900;    
+    color: #339900;
 }
 
 .pending {
-    color: #ffcc00;    
+    color: #ffcc00;
 }
 
 .canceled {
-    color: #cc3300;    
+    color: #cc3300;
 }
 
-.userprofile-dropdown{
-   background-color: transparent;
-   transform: translateY(45%);
-   padding: 1rem;
-   overflow: hidden;
+.userprofile-dropdown {
+    background-color: transparent;
+    transform: translateY(45%);
+    padding: 1rem;
+    overflow: hidden;
 }
 
 .userprofile-dropdown-item {
@@ -410,7 +411,6 @@ body {
     border-radius: 15px;
     box-shadow: 0 5px 5px 0 #a1a1a1;
     height: 95%;
-   
 }
 
 .userprofile-info-header {
@@ -693,4 +693,99 @@ footer {
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+
+
+/* CHECKOUT */
+
+.checkout a {
+    text-decoration: none;
+}
+
+.checkout-controls {
+    flex: 0.5;
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+    justify-content: center;
+}
+
+.checkout-controls button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.checkout-item-quantity {
+    width: 3rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(129, 129, 129);
+}
+
+.checkout-delete {
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.checkout-delete button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.checkout-item {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding: .5rem;
+}
+
+.checkout-item__img-wrapper img {
+    width: 100px;
+}
+
+.checkout-item__content-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.checkout-item__content-wrapper a {
+    flex: 1;
+}
+
+.checkout-item h2 {
+    color: rgb(14, 63, 99);
+    font-family: Montserrat, sans-serif;
+    font-size: 13.760000228881836px;
+    font-weight: 600;
+}
+
+.checkout-item__price-wrapper {
+    color: #a0c4d2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: .5rem;
+}
+
+.checkout-item__price {
+    text-decoration: line-through;
+}
+
+.checkout-item .sale {
+    text-decoration: none;
+}
+
+.checkout-bottom {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--clr-sale);
+    margin-top: 1rem;
+    padding-top: 1rem;
 }

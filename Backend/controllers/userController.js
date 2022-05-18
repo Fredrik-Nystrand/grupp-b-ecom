@@ -53,6 +53,23 @@ const createUser = asyncHandler(async(req, res) => {
     }
 });
 
+// Hämta info om användare
+
+const getUserInfo = asyncHandler(async(req, res) => {
+  const {id} = req.params
+  const user = await User.findById(id).select("-password")
+
+  if(user){
+    res.status(200).json({
+      user
+    })
+  }else {
+    res.status(400);
+    throw new Error("Gick inte")
+  }
+
+})
+
 // SKAPA NY ADMIN
 const createAdmin = asyncHandler(async(req, res) => {
     const currentUser = await User.findById(req.user.id);
@@ -219,4 +236,5 @@ module.exports = {
     updateUser,
     deleteUser,
     createAdmin,
+    getUserInfo
 };

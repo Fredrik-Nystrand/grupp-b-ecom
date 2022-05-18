@@ -6,8 +6,6 @@ const ProtectedUserRoutes = (props) => {
   const {token} = useSelector(state => state.authReducer)
   const location = useLocation()
 
-  console.log(token)
-
   return token 
   ? props.children
   : <Navigate to="/login" replace state={{from: location.pathname}} />

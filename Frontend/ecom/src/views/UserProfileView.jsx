@@ -1,18 +1,27 @@
-import React from 'react'
+import {useEffect}from 'react'
 import { useState } from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 import OrderItem from '../components/userView/OrderItem'
+import {getOrders} from '../store/actions/ordersAction'
 
 
 const UserProfileView = () => {
-    
+    const {token} = useSelector(state => state.authReducer)
+    const {orders} = useSelector(state => state.orderReducer)
     const [open, setOpen] = useState(false)
+    const [orderList, setOrderList] = useState([])
 
-    const arr = [
-      {date: "2022-02-18", id: "1023wwf19230", status: "Skickad"},
-      {date: "2022-02-18", id: "102wfgfgw319230", status: "Skickad"},
-      {date: "2022-02-18", id: "1023wfwffgg19230", status: "Skickad"}
-    ]
- 
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(getOrders(token))
+    }, [dispatch, token, getOrders])
+
+   /*  useEffect(() => {
+      setOrderList(orders)
+    }, [orders])
+
+    console.log(orderList) */
     return (
   
     <div className="container content">
@@ -37,8 +46,8 @@ const UserProfileView = () => {
                    <div className="userprofile-column status">Orderstatus</div>
                </li>
 
-                {arr.map(item => (
-                  <OrderItem key={item.id} item={item} />
+                {orders.map(order => (
+                  <OrderItem key={order._id} order={order} />
                 ))}
                 
 

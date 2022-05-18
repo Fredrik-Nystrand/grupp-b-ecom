@@ -69,6 +69,14 @@ const cartReducer = (state = initState, action) => {
       }
     }
 
+    case actiontypes().cart.clearCart: {
+      return {
+        cart : [],
+        loading: false,
+        error: null,
+      }
+    }
+
     default:
       return state
   }
