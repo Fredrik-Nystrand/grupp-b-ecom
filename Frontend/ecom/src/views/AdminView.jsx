@@ -1,18 +1,28 @@
-import React from 'react'
+import {useEffect} from 'react'
 import AdminUserList from '../components/admin/AdminUserList'
+import { useDispatch, useSelector } from 'react-redux'
+import {getUsers} from '../store/actions/usersActions'
+
 
 const Admin = () => {
+
+  const {token} = useSelector(state => state.authReducer)
+  const {users} = useSelector(state => state.usersReducer)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getUsers(token))
+  },[dispatch, token, getUsers])
+
   return (
-    <div className='container'>
+    <div className='container content'>
       <div className='admin-container'>
         <h4>Email</h4>
         <h4>User Id</h4>
-        <h4>Order Status</h4>
+        <h4>Edit</h4>
       </div>
-      <ul>
-        <AdminUserList />
-        <AdminUserList />
-        <AdminUserList />
+      <ul className="admin-list">
+        {users.map(user => (<AdminUserList key={user._id} user={user} />))}
       </ul>
 
 

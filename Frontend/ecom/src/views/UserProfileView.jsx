@@ -1,42 +1,45 @@
 import {useEffect}from 'react'
 import { useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import {Link, useNavigate, useLocation} from 'react-router-dom'
 import OrderItem from '../components/userView/OrderItem'
 import {getOrders} from '../store/actions/ordersAction'
 
 
 const UserProfileView = () => {
-    const {token} = useSelector(state => state.authReducer)
+    const {token, name, email} = useSelector(state => state.authReducer)
     const {orders} = useSelector(state => state.orderReducer)
-    const [open, setOpen] = useState(false)
-    const [orderList, setOrderList] = useState([])
+    const {users} = useSelector(state => state.usersReducer)
+    const [user, setUser] = useState({name: '', email: ''})
+
 
     const dispatch = useDispatch();
+    const {state} = useLocation();
+
+    
 
     useEffect(() => {
-      dispatch(getOrders(token))
-    }, [dispatch, token, getOrders])
+      if(state?.from){
+        if(state.from === 'admin'){
+          dispatch(getOrders(token, state.id))
+          const user = users.find(user => user._id === state.id)
+          setUser({name: user.name, email: user.email})
+        }
+      }else {
+        dispatch(getOrders(token))
+        setUser({name, email})
+      }
+      
+    }, [dispatch, token, getOrders, state])
 
-   /*  useEffect(() => {
-      setOrderList(orders)
-    }, [orders])
-
-    console.log(orderList) */
     return (
   
     <div className="container content">
         <div className="userprofile-card">
            <div className="userprofile-info-header">
                <div className='userprofile-info'>
-               <p>Evert Starkman</p>
-               <p>Kanonkulegatan 666</p>
-               <p>Västerås</p>
-               <p>Sweden</p>
-               </div>
-               <div className="userprofile-header-buttons">
-                   <button className='btn btn-edit'><i className="fa-solid fa-pen-to-square"></i></button>
-                   <button className='btn btn-settings'><i className="fa-solid fa-gear"></i></button>
-                   <button className='btn btn-admin'><i className="fa-solid fa-hammer"></i></button>                   
+               <p className="name">{user.name}</p>
+               <p className="email">{user.email}</p>
                </div>
            </div>          
            <ul className='userprofile-orderlist'>
@@ -48,49 +51,7 @@ const UserProfileView = () => {
 
                 {orders.map(order => (
                   <OrderItem key={order._id} order={order} />
-                ))}
-                
-
-                {/* <li className='userprofile-order'>
-                    <div className='userprofile-order-date'>2022-02-18</div>
-                    <div className='userprofile-order-number'>102319230</div>
-                    <div className='userprofile-order-status'>
-                        <p className='userprofile-status-text'>Skickad</p>
-                        <div>
-                        <i className="fa-solid fa-square sent"></i>
-                        </div>
-                        <button className='userprofile-chevron' onClick={() => setOpen(!open)}><i className="fa-solid fa-chevron-down"></i></button>
-                        {open && UPdropdownMenu()}
-                    </div>
-                </li>
-                
-                <li className='userprofile-order'>
-                    <div className='userprofile-order-date'>2022-02-18</div>
-                    <div className='userprofile-order-number'>102319230</div>
-                    <div className='userprofile-order-status'>
-                         <p className='userprofile-status-text'>Ej Skickad</p> 
-                         <div>
-                         <i className="fa-solid fa-square pending"></i>
-                         </div>
-                         <button className='userprofile-chevron' onClick={() => setOpen(!open)}><i className="fa-solid fa-chevron-down"></i></button>
-                        {open && UPdropdownMenu()}
-                    </div>
-                </li>    
-                
-                <li className='userprofile-order'>
-                    <div className='userprofile-order-date'>2022-02-18</div>
-                    <div className='userprofile-order-number'>102319230</div>
-                    <div className='userprofile-order-status'>
-                        <p className='userprofile-status-text'>Avbruten</p>
-                        <div>
-                        <i className="fa-solid fa-square canceled"></i> 
-                        </div>
-                    <button className='userprofile-chevron' onClick={() => setOpen(!open)}><i className="fa-solid fa-chevron-down"></i></button>
-                        {open && UPdropdownMenu()}
-                     </div>
-                </li> */}
-         
-                           
+                ))}                        
             </ul>
 
         </div>

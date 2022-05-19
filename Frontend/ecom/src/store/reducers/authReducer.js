@@ -8,6 +8,7 @@ const initState = {
   id: null,
   name: null,
   email: null,
+  isAdmin: false
 }
 
 const authReducer = (state = initState, action) => {
@@ -21,14 +22,15 @@ const authReducer = (state = initState, action) => {
 
     case actiontypes().auth.authorizeSuccess:
       localStorage.setItem('token', action.payload.token)
-      console.log(action.payload)
+      //console.log(action.payload)
       return {
         ...state,
         loading: false,
         token: action.payload.token,
         id: action.payload.id,
         name: action.payload.name,
-        email: action.payload.email
+        email: action.payload.email,
+        isAdmin: action.payload.isAdmin
       }
     
     case actiontypes().auth.authorizeFailure:
@@ -36,6 +38,12 @@ const authReducer = (state = initState, action) => {
         ...state,
         loading: false,
         error: action.payload
+      }
+
+    case actiontypes().auth.logout:
+      localStorage.removeItem('token')
+      return{
+        ...initState
       }
 
     default:

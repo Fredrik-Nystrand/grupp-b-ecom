@@ -27,6 +27,12 @@ const getOrders = asyncHandler(async(req, res) => {
     res.status(200).json({ orders });
 });
 
+const getOrdersById = asyncHandler(async(req, res) => {
+  const orders = await Order.find({ user: req.params.id });
+
+  res.status(200).json({ orders });
+});
+
 const getSingleOrder = asyncHandler(async(req, res) => {
     if (req.params.id.length !== 24) {
         res.status(400);
@@ -83,4 +89,5 @@ module.exports = {
     getSingleOrder,
     updateOrder,
     deleteOrder,
+    getOrdersById
 };

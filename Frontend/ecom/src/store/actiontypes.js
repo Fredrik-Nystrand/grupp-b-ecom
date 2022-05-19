@@ -29,6 +29,11 @@ const actiontypes = () => {
       getOrders: 'GET_ORDERS',
       getOrdersSuccess: 'GET_ORDERS_SUCCESS',
       getOrdersFailure: 'GET_ORDERS_FAILURE',
+    },
+    users: {
+      getUsers: 'GET_USERS',
+      getUsersSuccess: 'GET_USERS_SUCCESS',
+      getUsersFailure: 'GET_USERS_FAILURE',
     }
   }
 }

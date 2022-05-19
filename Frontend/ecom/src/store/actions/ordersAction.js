@@ -33,15 +33,18 @@ const createOrderFailure = (err) => {
 }
 
 
-export const getOrders = (token) => {
+export const getOrders = (token, id=null) => {
   return async dispatch => {
     dispatch({
       type: actiontypes().orders.getOrders
     })
     try {
-      console.log(token)
-      const res = await axios.get('http://localhost:9000/api/orders', {headers: { Authorization: "Bearer " + token}})
-      
+      let res;
+      if(id){
+        res = await axios.get(`http://localhost:9000/api/orders/user/${id}`, {headers: { Authorization: "Bearer " + token}})
+      }else {
+        res = await axios.get('http://localhost:9000/api/orders', {headers: { Authorization: "Bearer " + token}})
+      }
 
       if(res.status === 200){
         dispatch(getOrdersSuccess(res.data.orders))

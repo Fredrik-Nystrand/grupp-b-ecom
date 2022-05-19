@@ -13,6 +13,10 @@ const orderSchema = mongoose.Schema({
     totalPrice: {
         type: 'string',
         required: true,
+    },
+    status: {
+      type: 'string',
+      default: 'Pending'
     }
 }, {
     timestamps: true

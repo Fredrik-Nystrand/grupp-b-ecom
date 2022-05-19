@@ -15,6 +15,7 @@ import ProductDetailsView from './views/ProductDetailsView'
 import UserProfileView from './views/UserProfileView';
 import ShoppingCart from './components/ShoppingCart/ShoppingCart'
 import ProtectedUserRoutes from './routes/ProtectedUserRoutes';
+import ProtectedAdminRoutes from './routes/ProtectedAdminRoutes';
 import CheckoutView from './views/CheckoutView';
 
 
@@ -48,6 +49,12 @@ function App() {
             <ProtectedUserRoutes>
             <CheckoutView />
           </ProtectedUserRoutes>
+          } />
+
+          <Route path="/admin" element={
+            <ProtectedAdminRoutes>
+            <AdminView />
+          </ProtectedAdminRoutes>
           } />
           
         </Routes>

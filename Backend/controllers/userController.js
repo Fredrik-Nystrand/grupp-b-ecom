@@ -65,8 +65,31 @@ const getUserInfo = asyncHandler(async(req, res) => {
     })
   }else {
     res.status(400);
-    throw new Error("Gick inte")
+    throw new Error("Gick inte att hitta användaren")
   }
+
+})
+
+
+const checkAdmin = asyncHandler(async(req, res) => {
+  const {id} = req.params
+  const user = await User.findById(id)
+
+  if(user) {
+      if(user.isAdmin){
+      res.status(200).json({
+        isAdmin: true
+      })
+    }else {
+      res.status(200).json({
+        isAdmin: false
+      })
+    }
+  }else {
+    res.status(400);
+    throw new Error("Gick inte att hitta användaren")
+  }
+
 
 })
 
@@ -223,6 +246,12 @@ const deleteUser = asyncHandler(async(req, res) => {
     res.status(200).json(user.id);
 });
 
+const getUsers = asyncHandler(async(req, res) => {
+  const users = await User.find();
+
+  res.status(200).json({ users });
+});
+
 // GENERERA JWT
 const generateToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -236,5 +265,7 @@ module.exports = {
     updateUser,
     deleteUser,
     createAdmin,
-    getUserInfo
+    getUserInfo,
+    checkAdmin,
+    getUsers,
 };

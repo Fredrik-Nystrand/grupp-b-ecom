@@ -4,6 +4,7 @@ import singleProductReducer from './singleProductReducer'
 import cartReducer from './cartReducer'
 import authReducer from './authReducer'
 import orderReducer from './orderReducer'
+import usersReducer from './usersReducer'
 
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
   singleProductReducer,
   cartReducer,
   authReducer,
-  orderReducer
+  orderReducer,
+  usersReducer
 })

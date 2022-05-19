@@ -38,16 +38,30 @@ export const checkAuth = () => {
           localStorage.removeItem('token')
       }else {
         const res = await dispatch(getUserInfo(decode.id, token))
-        console.log(res)
+        //console.log(res)
         const userInfo = {
           token,
           email: res.user.email,
           name: res.user.name,
-          id: res.user.id
+          id: res.user._id,
+          isAdmin: res.user.isAdmin
         }
         dispatch(authSuccess(userInfo))
       }
     }
+  }
+}
+
+export const checkAdmin = (id, token) => {
+  return async () => {
+    const res = await axios.get(`http://localhost:9000/api/users/admin/${id}`, {headers: { Authorization: "Bearer " + token}})
+    return res.data.isAdmin
+  }
+}
+
+export const logout = () => {
+  return {
+    type: actiontypes().auth.logout
   }
 }
 

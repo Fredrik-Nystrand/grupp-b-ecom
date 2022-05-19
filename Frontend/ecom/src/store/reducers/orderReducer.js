@@ -36,7 +36,7 @@ const orderReducer = (state = initState, action) => {
       }
 
     case actiontypes().orders.getOrdersSuccess:
-      console.log(action.payload)
+      //console.log(action.payload)
       return {
         ...state,
       loading: false,
