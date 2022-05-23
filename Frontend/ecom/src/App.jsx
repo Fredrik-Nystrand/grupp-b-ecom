@@ -39,22 +39,28 @@ function App() {
           <Route path="/register" element={ <RegisterView /> } />
           <Route path="/details/:id" element={ <ProductDetailsView /> } />
           <Route path="/cart" element={ <ShoppingCart /> } />
-            <Route path="/user" element={
-              <ProtectedUserRoutes>
-                <UserProfileView />
-              </ProtectedUserRoutes>
-            } />
+          <Route path="/user" element={
+            <ProtectedUserRoutes>
+              <UserProfileView />
+            </ProtectedUserRoutes>
+          } />
 
           <Route path="/checkout" element={
             <ProtectedUserRoutes>
-            <CheckoutView />
+              <CheckoutView />
           </ProtectedUserRoutes>
           } />
 
           <Route path="/admin" element={
             <ProtectedAdminRoutes>
-            <AdminView />
+              <AdminView />
           </ProtectedAdminRoutes>
+          } />
+
+          <Route path="/user/:id" element={
+            <ProtectedAdminRoutes>
+              <UserProfileView />
+            </ProtectedAdminRoutes>
           } />
           
         </Routes>

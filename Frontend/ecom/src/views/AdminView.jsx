@@ -1,6 +1,6 @@
 import {useEffect} from 'react'
-import AdminUserList from '../components/admin/AdminUserList'
 import { useDispatch, useSelector } from 'react-redux'
+import AdminUserList from '../components/admin/AdminUserList'
 import {getUsers} from '../store/actions/usersActions'
 
 

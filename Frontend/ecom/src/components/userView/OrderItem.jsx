@@ -83,7 +83,7 @@ const OrderItem = ({order}) => {
     <div className='userprofile-dropdown'>
         <ul className="order-list">
           {order.cart.map(item => (
-            <li className='userprofile-dropdown-item'>
+            <li key={item._id} className='userprofile-dropdown-item'>
             <div className="order-list__img">
               <img src={item.imgURL} alt="" />
             </div>

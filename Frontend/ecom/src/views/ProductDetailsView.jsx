@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSingleProduct } from '../store/actions/singleProductActions'
@@ -9,6 +9,7 @@ const ProductDetailsView = () => {
 
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [newProduct, setNewProduct] = useState({})
 
   useEffect(() => {
@@ -33,6 +34,7 @@ const ProductDetailsView = () => {
     <div className="content">
       { loading && 'loading..' }
       { error && <p>error</p> }
+      <div className="btn-back container" onClick={() => navigate(-1)}><i className="fa-solid fa-chevron-left"></i> Go Back</div>
       <div className='product-details container'>
         <div className='product-image'>
           <img src={product.imgURL} alt="" />

@@ -160,6 +160,15 @@ body {
     border-radius: 100vh;
 }
 
+.btn-back {
+    cursor: pointer;
+    transition: color 0.15s ease-in-out;
+}
+
+.btn-back:hover {
+    color: var(--primary-dark);
+}
+
 
 /* NAVBAR */
 
@@ -168,6 +177,7 @@ body {
     border-bottom: 1px solid black;
     position: relative;
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.199);
+    z-index: 2;
 }
 
 .navbar a {
@@ -184,6 +194,12 @@ body {
     font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.navbar-btn:hover {
+    color: white;
+    background-color: var(--primary-dark);
 }
 
 .navbar .container {
@@ -206,6 +222,28 @@ body {
     text-transform: uppercase;
     text-align: center;
     font-size: 0.9rem;
+    transition: color 0.15s ease-in-out;
+}
+
+.navbar__links .nav-link:hover {
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+.navbar__links .active {
+    color: var(--primary-dark);
+    font-weight: 600;
+    position: relative;
+}
+
+.navbar__links .active::after {
+    content: '';
+    position: absolute;
+    border-bottom: solid 2px var(--primary-dark);
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: -3px;
 }
 
 .navbar__actions {
@@ -223,6 +261,12 @@ body {
     border-radius: 100vh;
     background-color: black;
     cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.navbar__actions .cart-btn:hover {
+    color: white;
+    background-color: var(--primary-dark);
 }
 
 .navbar__actions .fa-cart-shopping {
@@ -317,11 +361,20 @@ ul.admin-list {
     padding-left: 1rem;
 }
 
+.admin-list-container .admin-btn a {
+    text-decoration: none;
+}
+
 
 /* SHOP */
 
 .shop-list a {
     text-decoration: none;
+    transition: transform 0.15s ease-in-out;
+}
+
+.shop-list a:hover {
+    transform: scale(1.05)
 }
 
 .product-card__content-wrapper {
@@ -405,9 +458,13 @@ ul.admin-list {
     padding: .3em 1em;
     font-size: 1.5rem;
     cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
 }
 
-.login-btn:hover {}
+.login-btn:hover {
+    color: white;
+    background-color: var(--primary-dark);
+}
 
 .signin a:visited {
     color: blue;
@@ -430,6 +487,11 @@ ul.admin-list {
 
 .canceled {
     color: #cc3300;
+}
+
+.userprofile .btn-back {
+    padding: 2rem;
+    background-color: #ffffff9c;
 }
 
 .userprofile-dropdown {
@@ -609,6 +671,11 @@ ul.admin-list {
     border: none;
     background-color: transparent;
     cursor: pointer;
+    transition: color 0.15s ease-in-out;
+}
+
+.btn-delete:hover {
+    color: var(--primary-dark);
 }
 
 .btn-delete .fa-trash-can {
@@ -679,6 +746,11 @@ ul.admin-list {
     background-color: #6b9aac;
     color: white;
     cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.product-details .btn:hover {
+    background-color: var(--primary-dark);
 }
 
 .product-details .stock {
@@ -721,6 +793,7 @@ footer {
 }
 
 .shopping-cart {
+    z-index: 5;
     position: absolute;
     right: 0;
     top: 0;

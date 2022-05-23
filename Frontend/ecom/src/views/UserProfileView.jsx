@@ -1,41 +1,51 @@
 import {useEffect}from 'react'
 import { useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {useLocation} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 import OrderItem from '../components/userView/OrderItem'
 import {getOrders} from '../store/actions/ordersAction'
+import {getUsers} from '../store/actions/usersActions'
 
 
 const UserProfileView = () => {
     const {token, name, email} = useSelector(state => state.authReducer)
     const {orders} = useSelector(state => state.orderReducer)
-    const {users} = useSelector(state => state.usersReducer)
+    const {users, loading} = useSelector(state => state.usersReducer)
     const [user, setUser] = useState({name: '', email: ''})
 
-
+    const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {state} = useLocation();
+    const {id} = useParams();
 
     
 
     useEffect(() => {
-      if(state?.from){
-        if(state.from === 'admin'){
-          dispatch(getOrders(token, state.id))
-          const user = users.find(user => user._id === state.id)
-          setUser({name: user.name, email: user.email})
-        }
+      
+      if(id){
+        dispatch(getOrders(token, id))
+        dispatch(getUsers(token))
       }else {
         dispatch(getOrders(token))
         setUser({name, email})
       }
       
-    }, [dispatch, token, state, email, name ,users])
+    }, [dispatch, token, id, name, email])
+
+
+    useEffect(() => {
+      if(!loading && users.length > 0 && id){
+        const user = users.find(user => user._id === id)
+        setUser({name: user.name, email: user.email})
+      }
+
+
+    }, [loading, id, users])
 
     return (
   
-    <div className="container content">
+    <div className="userprofile container content">
         <div className="userprofile-card">
+        <div className="btn-back " onClick={() => navigate(-1)}><i className="fa-solid fa-chevron-left"></i> Go Back</div>
            <div className="userprofile-info-header">
                <div className='userprofile-info'>
                <p className="name">{user.name}</p>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate, useLocation} from 'react-router-dom'
+import { useNavigate, Link} from 'react-router-dom'
 
 const AdminUserList = ({user}) => {
   const navigate = useNavigate();
@@ -8,7 +8,8 @@ const AdminUserList = ({user}) => {
       <li>{user.email}</li>
       <li>{user._id}</li>
       <div className="admin-btn">
-        <button className="btn navbar-btn" onClick={() => navigate('/user', {replace:false, state: {from:'admin', id: user._id}})}>View User</button></div>  
+        {/* <button className="btn navbar-btn" onClick={() => navigate('/user', {replace:false, state: {from:'admin', id: user._id}})}>View User</button></div> */}
+        <Link to={`/user/${user._id}`}><button className="btn navbar-btn">View User</button></Link></div> 
       
     </div>
   )
