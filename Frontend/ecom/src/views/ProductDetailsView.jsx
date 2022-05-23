@@ -47,9 +47,9 @@ const ProductDetailsView = () => {
               </div>
 
             <p className='desc'>{product.description}</p>
-            <button className="btn" onClick={() => dispatch(addToCart(newProduct))}>Lägg till i varukorgen</button>
+            <button className="btn" onClick={() => dispatch(addToCart(newProduct))}>Add to cart</button>
             <div className="stock-wrapper">
-              <p className='stock'>I lager</p>
+              <p className='stock'>In Stock</p>
             </div>
           </div>
       </div>

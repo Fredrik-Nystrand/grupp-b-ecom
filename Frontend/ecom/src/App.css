@@ -167,6 +167,7 @@ body {
     background-color: rgba(255, 255, 255, 0.938);
     border-bottom: 1px solid black;
     position: relative;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.199);
 }
 
 .navbar a {
@@ -236,7 +237,28 @@ body {
 }
 
 .navbar__logo img {
-    height: 100px;
+    height: 80px;
+}
+
+.navbar .cart {
+    position: relative;
+}
+
+.navbar .cart-quantity {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: var(--primary-light);
+    font-weight: bold;
+    border-radius: 100%;
+    padding: 2px;
+    height: 100%;
+    width: 100%;
+    transform: scale(50%);
+    right: -15px;
+    bottom: -15px;
 }
 
 
@@ -412,10 +434,7 @@ ul.admin-list {
 
 .userprofile-dropdown {
     background-color: #e6e6e69a;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
     overflow: hidden;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.24) inset;
 }
@@ -427,7 +446,7 @@ ul.admin-list {
     border: #333;
     background-color: #faf9f6;
     border-radius: 15px;
-    box-shadow: 0 5px 5px 0 #a1a1a1;
+    box-shadow: 0 0px 5px 0 #0000002a;
     height: 95%;
 }
 
@@ -466,7 +485,6 @@ ul.admin-list {
     background-color: transparent;
     border-radius: 50px;
     border: none;
-    margin-left: 99%;
     transition: background 500ms;
 }
 
@@ -480,13 +498,15 @@ ul.admin-list {
 
 .userprofile-header {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     border-bottom: solid 1px #3333338a;
+    padding: 1rem;
 }
 
 .userprofile-column {
-    width: auto;
-    padding: 0.5rem;
+    flex: 1;
+    display: flex;
+    justify-content: center;
     font-weight: 500;
 }
 
@@ -502,24 +522,19 @@ ul.admin-list {
 
 .userprofile-order-status {
     display: flex;
-    width: 6rem;
-    gap: 7px;
+    flex: 0.33;
 }
 
 .userprofile-status-text {
     position: absolute;
 }
 
-.fa-square {
-    padding-left: 5rem;
-}
-
 .order-status-wrapper {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
     background-color: #ffffff9c;
-    padding: 1rem;
+    padding-block: 1rem;
     font-size: small;
 }
 
@@ -528,13 +543,15 @@ ul.admin-list {
     align-items: center;
     width: 100%;
     gap: 1rem;
+    padding: 0.5rem;
+    background-color: white;
 }
 
 .order-list {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .order-list__img {
@@ -555,6 +572,47 @@ ul.admin-list {
     justify-content: flex-end;
     margin-top: 1rem;
     font-weight: 500;
+    background-color: #dbe5e9;
+    padding: 0.5rem;
+}
+
+.order-status-options {
+    display: flex;
+    flex: 1;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-left: 35px;
+    text-transform: capitalize;
+}
+
+.order-status-options select {
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+}
+
+.userprofile-order-date {
+    flex: 0.33;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userprofile-order-number {
+    flex: 0.33;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-delete {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-delete .fa-trash-can {
+    transform: translateY(-1px);
 }
 
 
@@ -643,6 +701,7 @@ footer {
     background-color: var(--primary-dark);
     text-align: center;
     color: white;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.199);
 }
 
 

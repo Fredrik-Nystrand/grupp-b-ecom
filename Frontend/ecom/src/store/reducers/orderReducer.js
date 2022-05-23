@@ -9,6 +9,7 @@ const initState = {
 const orderReducer = (state = initState, action) => {
   switch (action.type) {
 
+    // CREATE ORDER
     case actiontypes().orders.createOrder:
       return {
         ...state,
@@ -28,7 +29,7 @@ const orderReducer = (state = initState, action) => {
     }
 
 
-    
+    // GET ORDERS
     case actiontypes().orders.getOrders:
       return {
         ...state,
@@ -52,7 +53,59 @@ const orderReducer = (state = initState, action) => {
     }
 
 
+    //EDIT ORDERS
 
+    case actiontypes().orders.editOrder:
+      return {
+        ...state,
+        loading: true
+      }
+
+
+    case actiontypes().orders.editOrderSuccess:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        orders: state.orders.map(order => {
+          if(order._id === action.payload._id){
+            return order = action.payload
+          }
+          return order
+        })
+      }
+
+    case actiontypes().orders.editOrderFailure:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      }
+
+
+    //DELETE ORDERS
+
+    case actiontypes().orders.deleteOrder:
+      return {
+        ...state,
+        loading: true
+      }
+
+    case actiontypes().orders.deleteOrderSuccess:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        orders: state.orders.filter(order => order._id !== action.payload)
+      }
+    
+    case actiontypes().orders.deleteOrderFailure:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      }
+    
     default:
       return state
   }

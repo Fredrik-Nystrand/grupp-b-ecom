@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import {useNavigate} from 'react-router-dom'
 import CheckoutItem from '../components/checkout/CheckoutItem'
 import {createOrder} from '../store/actions/ordersAction'
 import { clearCart } from '../store/actions/cartActions'
@@ -11,6 +12,7 @@ const CheckoutView = () => {
   const { loading, error } = useSelector(state => state.orderReducer)
   const [newOrder, setNewOrder] = useState({})
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setNewOrder({
@@ -21,11 +23,15 @@ const CheckoutView = () => {
         totalPrice
       }
     })
-  }, [cart, id])
+  }, [cart, id, token, totalPrice]);
+
+  useEffect(() => {
+    cart.length <= 0 && navigate('/')
+  }, [cart, navigate])
 
 
-  const placeOrder = async () => {
-    await dispatch(createOrder(newOrder))
+  const placeOrder = () => {
+    dispatch(createOrder(newOrder))
 
     if(loading === false && error === null){
       dispatch(clearCart())

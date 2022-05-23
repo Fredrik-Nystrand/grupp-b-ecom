@@ -49,6 +49,10 @@ const getSingleOrder = asyncHandler(async(req, res) => {
     res.status(200).json({ order });
 });
 
+
+
+
+
 const updateOrder = asyncHandler(async(req, res) => {
     if (req.params.id.length !== 24) {
         res.status(400);
@@ -66,6 +70,10 @@ const updateOrder = asyncHandler(async(req, res) => {
 
     res.status(200).json(order);
 });
+
+
+
+
 
 const deleteOrder = asyncHandler(async(req, res) => {
     if (req.params.id.length !== 24) {

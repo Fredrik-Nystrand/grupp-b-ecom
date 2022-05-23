@@ -9,18 +9,17 @@ import {logout} from '../store/actions/authActions'
 const Navbar = () => {
   const [cartOpen, setCartOpen] = useState(false)
 
-  const {token, isAdmin, id} = useSelector(state => state.authReducer)
+  const {token, isAdmin} = useSelector(state => state.authReducer)
+  const {totalQuantity} = useSelector(state => state.cartReducer)
 
   const dispatch = useDispatch()
 
 const toggleCart = () => {
   if (cartOpen === true) {
     setCartOpen(false)
-    //console.log("false")
 
   }else {
     setCartOpen(true)
-    //console.log("true")
 
   }
   
@@ -37,7 +36,7 @@ const toggleCart = () => {
         </div>
         <div className="navbar__logo">
           <Link to="/">
-            <img src={logo} />
+            <img src={logo} alt="company logo"/>
           </Link>
         </div>
         <div className="navbar__actions">
@@ -57,6 +56,7 @@ const toggleCart = () => {
           <div className="cart">
             <div className="cart-btn" onClick={toggleCart}>
               <i className="fa-solid fa-cart-shopping"></i>
+              {totalQuantity > 0 && <span className="cart-quantity">{totalQuantity}</span>}
             </div>
             {cartOpen && <ShoppingCart toggleCart={toggleCart} />}
           </div>

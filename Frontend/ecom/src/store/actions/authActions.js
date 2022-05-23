@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 const apiCall = (url, user, dispatch) => {
   axios.post(url, user)
   .then(res => {
+    console.log(res.data)
     dispatch(authSuccess(res.data))
   })
   .catch(err => dispatch(authFailure(err.message)))
@@ -38,7 +39,7 @@ export const checkAuth = () => {
           localStorage.removeItem('token')
       }else {
         const res = await dispatch(getUserInfo(decode.id, token))
-        //console.log(res)
+        //console.log(res.user.isAdmin)
         const userInfo = {
           token,
           email: res.user.email,
@@ -52,10 +53,19 @@ export const checkAuth = () => {
   }
 }
 
-export const checkAdmin = (id, token) => {
+
+
+export const checkAdmin = () => {
   return async () => {
-    const res = await axios.get(`http://localhost:9000/api/users/admin/${id}`, {headers: { Authorization: "Bearer " + token}})
-    return res.data.isAdmin
+    const token = localStorage.getItem('token')
+
+    if(token) {
+      const decode = jwt_decode(token)
+
+      const res = await axios.get(`http://localhost:9000/api/users/admin/${decode.id}`, {headers: { Authorization: "Bearer " + token}})
+      return res.data.isAdmin
+    }
+    
   }
 }
 

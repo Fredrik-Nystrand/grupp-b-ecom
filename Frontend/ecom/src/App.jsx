@@ -1,9 +1,9 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { getProducts } from './store/actions/productsActions'
-import { checkAuth } from './store/actions/authActions'
+import { checkAuth} from './store/actions/authActions'
 
 import ShopView from './views/ShopView';
 import Navbar from './components/Navbar';
@@ -26,8 +26,8 @@ function App() {
   useEffect(() => {
     dispatch(getProducts())
     dispatch(checkAuth())
+    
   }, [dispatch]);
-
 
   return (
     <div className="App">

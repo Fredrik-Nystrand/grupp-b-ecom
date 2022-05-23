@@ -10,9 +10,13 @@ const ShoppingCart = ({toggleCart}) => {
   return (
         <div className='shopping-cart'>
           <div className='cart-top'>
-              { cart.map(product => (
+              { 
+              cart.length > 0
+              ? cart.map(product => (
                 <CartItem product={product} key={product._id} />
-              ))}
+              ))
+              : <p>The cart is empty...</p>
+              }
           </div>
 
           <div className='cart-bottom'>

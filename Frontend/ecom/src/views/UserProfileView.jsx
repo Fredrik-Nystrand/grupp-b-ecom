@@ -1,7 +1,7 @@
 import {useEffect}from 'react'
 import { useState } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {Link, useNavigate, useLocation} from 'react-router-dom'
+import {useLocation} from 'react-router-dom'
 import OrderItem from '../components/userView/OrderItem'
 import {getOrders} from '../store/actions/ordersAction'
 
@@ -30,7 +30,7 @@ const UserProfileView = () => {
         setUser({name, email})
       }
       
-    }, [dispatch, token, getOrders, state])
+    }, [dispatch, token, state, email, name ,users])
 
     return (
   
@@ -44,9 +44,9 @@ const UserProfileView = () => {
            </div>          
            <ul className='userprofile-orderlist'>
                <li className='userprofile-header'>
-                   <div className="userprofile-column date">Datum</div>
-                   <div className="userprofile-column order-number">Ordernummer</div>
-                   <div className="userprofile-column status">Orderstatus</div>
+                   <div className="userprofile-column date">Date</div>
+                   <div className="userprofile-column order-number">Order ID</div>
+                   <div className="userprofile-column status">Order status</div>
                </li>
 
                 {orders.map(order => (
@@ -58,18 +58,6 @@ const UserProfileView = () => {
     </div>
    
   )
-
-  function UPdropdownMenu(props) {
- 
-    return (
-    <div className='userprofile-dropdown'>
-        <ul>
-            <li className='userprofile-dropdown-item'></li>
-        </ul>
-
-    </div>
-  )
-}
 
 
 }

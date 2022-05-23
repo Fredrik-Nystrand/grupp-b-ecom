@@ -71,3 +71,77 @@ const getOrdersFailure = (err) => {
   }
 
 }
+
+
+export const editOrder = (order, token) => {
+  return async dispatch => {
+    dispatch({
+      type: actiontypes().orders.editOrder
+    })
+
+    try {
+      const res = await axios.put(`http://localhost:9000/api/orders/${order._id}`, order, {headers: { Authorization: "Bearer " + token}})
+      if(res.status === 200){
+        dispatch(editOrderSuccess(res.data))
+      }else {
+        throw new Error('Kunde inte uppdatera ordern')
+      }
+    } catch (err) {
+      dispatch(editOrderFailure(err.message))
+    }
+  }
+}
+
+
+const editOrderSuccess = (order) => {
+  return {
+    type: actiontypes().orders.editOrderSuccess,
+    payload: order
+  }
+}
+
+const editOrderFailure = (err) => {
+  return {
+    type: actiontypes().orders.editOrderFailure,
+    payload: err
+  }
+
+}
+
+
+export const deleteOrder = (id, token) => {
+  return async dispatch => {
+    dispatch({
+      type: actiontypes().orders.deleteOrder
+    })
+
+    try {
+      const res = await axios.delete(`http://localhost:9000/api/orders/${id}`, {headers: { Authorization: "Bearer " + token}})
+      if(res.status === 200){
+        dispatch(deleteOrderSuccess(res.data))
+        //console.log(res.data)
+      }else{
+        throw new Error('Kunde inte ta bort ordern')
+      }
+    } catch (err) {
+      dispatch(deleteOrderFailure(err.message))
+    }
+  }
+}
+
+
+const deleteOrderSuccess = (id) => {
+  console.log(id)
+  return {
+    type: actiontypes().orders.deleteOrderSuccess,
+    payload: id
+  }
+}
+
+const deleteOrderFailure = (err) => {
+  return {
+    type: actiontypes().orders.deleteOrderFailure,
+    payload: err
+  }
+
+}
